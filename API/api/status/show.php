@@ -2,8 +2,8 @@
     header('Access-Control-Allow-Origin: *');
     header('Content-Type: application/json');
 
-    include_once '../../config/Database.php'
-    include_once '../../alert/Alert.php'
+    include_once '../../config/Database.php';
+    include_once '../../alert/Alert.php';
 
     $database = new Database();
     $db = $database->connect();
@@ -18,10 +18,10 @@
     $num = $result->rowCount();
 
     //Check if any alerts
-    if(num > 0) {
+    if($num > 0) {
         //Alert array
         $alerts_arr = array();
-        $alerts_Arr['AlertData'] = array();
+        $alerts_arr['AlertData'] = array();
 
         while($row = $result->fetch(PDO::FETCH_ASSOC)) {
             extract($row);
