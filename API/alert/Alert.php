@@ -1,5 +1,9 @@
 <?php
     class Alert {
+        public $ID;
+        public $id;
+        public $Asiakasmaara;
+        public $Paiva;
         private $conn;
         public function __construct($db) {
             $this->conn = $db;
@@ -47,6 +51,29 @@
             $this->ID = $row['ID'];
             $this->Asiakasmaara = $row['Asiakasmaara'];
             $this->Paiva = $row['Paiva'];
+
+        }
+
+        public function create() {
+            
+            $query = 'INSERT INTO peetun_testi
+            SET asiakasmaara = :AsiakasMaara,
+            paiva = :Paivat';
+
+        $stmt = $this->conn->prepare($query);
+
+        $this->AsiakasMaara = htmlspecialchars(strip_tags($this->AsiakasMaara));
+        $this->Paivat = htmlspecialchars(strip_tags($this->Paivat));
+
+        $stmt->bindParam(':AsiakasMaara', $this->AsiakasMaara);
+        $stmt->bindParam(':Paivat', $this->Paivat);
+
+        if($stmt->execute()) {
+            return true;
+        }
+        printf("Error: %s.\n", $stmt->error);
+        
+        return false;
         }
     }
 
