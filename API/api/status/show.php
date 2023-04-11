@@ -17,7 +17,7 @@
     //Get row count
     $num = $result->rowCount();
 
-    //Check if any alerts
+    //Katsoo onko Alertteja
     if($num > 0) {
         //Alert array
         $alerts_arr = array();
@@ -32,7 +32,7 @@
                 'paiva' => $paiva
             );
             
-            //Push to "AlertData"
+            //työntää "AlertData"
             array_push($alerts_arr['AlertData'], $alert_item);
         }
 
@@ -40,7 +40,7 @@
         echo json_encode($alerts_arr);
 
     } else {
-        //No Alerts found
+        //Ei löytynyt Alertteja
         echo json_encode(
             array('message' => 'Ei halytyksia')
         );
