@@ -75,6 +75,51 @@
         
         return false;
         }
+        // Update alert
+        public function update() {
+            $query = 'UPDATE peetun_testi
+            SET asiakasmaara = :AsiakasMaarat,
+                paiva = :Paivatt
+            WHERE
+                id = :IDt';
+
+        $stmt = $this->conn->prepare($query);
+
+        $this->AsiakasMaarat = htmlspecialchars(strip_tags($this->AsiakasMaarat));
+        $this->Paivatt = htmlspecialchars(strip_tags($this->Paivatt));
+        $this->IDt = htmlspecialchars(strip_tags($this->IDt));
+
+        $stmt->bindParam(':AsiakasMaarat', $this->AsiakasMaarat);
+        $stmt->bindParam(':Paivatt', $this->Paivatt);
+        $stmt->bindParam(':IDt', $this->IDt);
+
+        if($stmt->execute()) {
+            return true;
+        }
+        printf("Error: %s.\n", $stmt->error);
+        
+        return false;
+        }
+        // delete alert
+        public function delete() {
+            $query = 'DELETE 
+            id = :IDtt
+            FROM
+            peetun_testi';
+
+        $stmt = $this->conn->prepare($query);
+
+        $this->IDtt = htmlspecialchars(strip_tags($this->IDtt));
+
+        $stmt->bindParam(':IDtt', $this->IDtt);
+
+        if($stmt->execute()) {
+            return true;
+        }
+        printf("Error: %s.\n", $stmt->error);
+        
+        return false;
+        }
     }
 
 ?>
