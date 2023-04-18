@@ -102,10 +102,10 @@
         }
         // delete alert
         public function delete() {
-            $query = 'DELETE 
-            id = :IDtt
-            FROM
-            peetun_testi';
+            $query = 'DELETE FROM
+                            peetun_testi
+                        WHERE
+                            id = :IDtt';
 
         $stmt = $this->conn->prepare($query);
 

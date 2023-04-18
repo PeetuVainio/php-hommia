@@ -17,7 +17,7 @@
 
     $alert->IDtt = $deleteData->IDtt;
 
-    if($alert->update()) {
+    if($alert->delete()) {
         echo json_encode(
             array('message' => 'Post Deleted')
         );
