@@ -1,9 +1,9 @@
 <?php
     class Database {
-        private $host = 'mirankanta.mysql.database.azure.com';
+        private $host = '';
         private $db_name = 'peetundb';
-        private $username = 'Mira';
-        private $password = 'Aarinen1977';
+        private $username = '';
+        private $password = '';
         private $conn;
 
         public function connect() {
