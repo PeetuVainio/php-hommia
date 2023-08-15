@@ -17,4 +17,4 @@ http://localhost:8000/php-hommia/API/api/status/create.php
 - Näyttäminen IDn perusteella
 - Päivittäminen
 
-### Tiedot menevät mysql tietokantaan
+### Tiedot menevät mysql tietokantaan Postman sovelluksen avulla.
